@@ -1,6 +1,7 @@
 ---
 layout: post
-title: WTSReader Cli Gem
+title: _
+header-img: "img/wtsreader.png"
 ---
 
 ## A project by Blaze Burgees & Ozzie Popovas.
