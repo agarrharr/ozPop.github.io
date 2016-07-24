@@ -1,0 +1,26 @@
+# Site settings
+title: Rusty Fence Blog
+header-img: img/rusty-fence.jpg
+email: ozziepopovas@gmail.com
+copyright_name: ozPop
+description: ""
+baseurl: ""
+twitter_username:
+github_username: ozPop
+learn_profile: ozPop
+email_username: ozziepopovas@gmail.com
+
+# Google Analytics
+# To enable google analytics, uncomment below line with a valid Google Tracking ID
+# google_tracking_id:
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md",
+"_posts/future-posts/"
+]
+
+gems: [jekyll-paginate, jekyll-feed]
