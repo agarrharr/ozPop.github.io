@@ -35,6 +35,8 @@ CREATE TABLE cats (
 
 `.schema`, `.tables`, `.quit` or `.help`
 
+<br>
+
 ### Altering a table
 
 `ALTER TABLE table_name ADD COLUMN column_name DATA-TYPE`
@@ -49,6 +51,8 @@ is tricky in sqlite3. For now, the recommended approach is to re-create the whol
 
 [For more on ALTER](https://www.sqlite.org/lang_altertable.html)
 
+<p></p>
+
 ### Deleting a table
 
 ```Sql
@@ -61,6 +65,8 @@ Once you have created a file some_file_name.sql using your favorite text editor.
 You can execute that file and create a table by running the command:
 
 `$ sqlite3 database_name.db < some_file_name.sql`
+
+<br>
 
 ## SQL Data Types
 
@@ -78,6 +84,8 @@ Datatypes basic categories:
 * BLOB - for holding binary data
 
 [For more on Datatypes](http://www.sqlite.org/datatype3.html)
+
+<br>
 
 ## SQL Inserting, Updating and Selecting
 
@@ -100,8 +108,6 @@ INSERT INTO cats (name, age, breed) VALUES ('Maru', 3, 'Scottish Fold');
 
 `SELECT [names_of_columns] FROM [table_name]`
 
-
-
 ```sql
 SELECT id, name, age FROM cats;
 ```
@@ -123,6 +129,8 @@ SELECT name FROM cats;
 SELECT DISTICT name FROM cats;
 ```
 
+<p></p>
+
 ### Selecting based on conditions with `WHERE` clause
 
 `SELECT * FROM [table name] WHERE [column name] = [some value];`
@@ -137,6 +145,8 @@ SELECT * FROM cats WHERE name = "Maru";
 ```sql
 SELECT * FROM cats WHERE age < 2;
 ```
+
+<p></p>
 
 ### Updating data using `UPDATE` keyword
 
@@ -154,6 +164,8 @@ UPDATE cats SET name = "Hana" WHERE name = "Hannah";
 DELETE FROM cats WHERE id = 3;
 ```
 
+<br>
+
 ## Basic SQL Queries
 
 ----
@@ -169,6 +181,7 @@ DELETE FROM cats WHERE id = 3;
 # or
 .width NUM1, NUM2 # customize column width
 ```
+<p></p>
 
 ### ORDER BY
 
@@ -184,6 +197,7 @@ SELECT * FROM cats ORDER BY age;
 ```sql
 SELECT * FROM cats ORDER BY age DESC;
 ```
+<p></p>
 
 ### LIMIT
 
@@ -192,6 +206,7 @@ SELECT * FROM cats ORDER BY age DESC;
 ```sql
 SELECT * FROM cats ORDER BY age DESC LIMIT 1;
 ```
+<p></p>
 
 ### BETWEEN
 
@@ -200,6 +215,7 @@ SELECT * FROM cats ORDER BY age DESC LIMIT 1;
 ```sql
 SELECT name FROM cats WHERE age BETWEEN 1 AND 3;
 ```
+<p></p>
 
 ### NULL
 
@@ -212,6 +228,7 @@ We can select using NULL too
 ```sql
 SELECT * FROM cats WHERE name IS NULL;
 ```
+<br>
 
 ## Aggregate functions COUNT and GROUP BY
 
@@ -236,6 +253,7 @@ SELECT COUNT(name) FROM cats;
 ```sql
 SELECT COUNT(*) FROM cats WHERE net_worth > 1000000;
 ```
+<p></p>
 
 ### AVG
 
@@ -251,6 +269,7 @@ SELECT AVG(net_worth) FROM cats;
 ```sql
 SELECT AVG(net_worth) AS average_net_worth FROM cats;
 ```
+<p></p>
 
 ### SUM
 
@@ -261,6 +280,7 @@ SELECT AVG(net_worth) AS average_net_worth FROM cats;
 ```sql
 SELECT SUM(net_worth) FROM cats;
 ```
+<p></p>
 
 ### MIN and MAX
 
@@ -273,6 +293,7 @@ SELECT SUM(net_worth) FROM cats;
 ```sql
 SELECT MIN(net_worth) FROM cats;
 ```
+<p></p>
 
 ### GROUP BY
 
@@ -283,6 +304,7 @@ SELECT breed, COUNT(breed) FROM cats GROUP BY breed;
 ```sql
 SELECT breed, owner_id, COUNT(breed) FROM cats GROUP BY breed, owner_id;
 ```
+<p></p>
 
 ### NOTE ON `SELECT`
 
