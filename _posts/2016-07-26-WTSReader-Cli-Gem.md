@@ -110,7 +110,7 @@ This module provides access to:
     * Rate of speech (in wpm)
     * Language and voice choices
 * Saving and loading of settings
-* Access to Languages and voices datastructure
+* Access to languages and voices datastructure
 
 `CliOutputMethods`
 
@@ -131,20 +131,17 @@ This module provides access to:
 
 This project was challenging and a lot of fun. Working with Blaze was a pleasure. 
 The most challenging aspects of this project were understanding another persons 
-code, making sure the CLI experience is fluid.
+code, interfacing with said code, making sure the CLI experience is fluid, fixing 
+bugs that popped up along the way, E.G.: handling the error when a voice was not 
+downloaded, which was causing our gem to shutdown prematurely.
 
 As it stands the gem can handle various content relatively well. For best 
-results we recommend that you use Guardian.com.
+results, however, we recommend that you use Guardian.com.
 
-**NOTE:** When choosing other languages the input text should match the language 
-of choice.
+**NOTE:** The text-to-speech feature on Mac works best with input that matches 
+the type of language. On the fly translation is not reliable.
 
-
-
-
-
-
-
+[Project Repository](https://github.com/ozPop/WTS-Reader-cli-gem)
 
 
 
