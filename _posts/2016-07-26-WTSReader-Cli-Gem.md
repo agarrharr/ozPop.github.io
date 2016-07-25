@@ -1,6 +1,7 @@
 ---
+css: wts-reader-custom
 layout: post
-title: _
+title: WTSReader Gem
 header-img: "img/wtsreader.png"
 ---
 
