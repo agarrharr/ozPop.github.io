@@ -172,7 +172,7 @@ DELETE FROM cats WHERE id = 3;
 
 ###### NOTE: To *format output* of your `SELECT` statements use the blow options
 
-### Changing cli output (display)
+### Changing cli output formatting in bash
 
 ```
 .header on       # output the name of each column
@@ -230,7 +230,7 @@ SELECT * FROM cats WHERE name IS NULL;
 ```
 <br>
 
-## Aggregate functions COUNT and GROUP BY
+## Aggregate functions
 
 Aggregate functions perform a calculation on specified values, queried from a database table.
 
@@ -264,7 +264,7 @@ SELECT COUNT(*) FROM cats WHERE net_worth > 1000000;
 ```sql
 SELECT AVG(net_worth) FROM cats;
 ```
-###### NOTE: using `AS` keyword we can rename the column
+##### NOTE: using `AS` keyword we can rename the column
 
 ```sql
 SELECT AVG(net_worth) AS average_net_worth FROM cats;
@@ -306,6 +306,16 @@ SELECT breed, owner_id, COUNT(breed) FROM cats GROUP BY breed, owner_id;
 ```
 <p></p>
 
+### CORE FUNCTIONS
+
+There exist a number of core functions like:
+
+`LENGTH`, `ABS`
+
+[Visit this link for more info](https://www.sqlite.org/lang_corefunc.html)
+
+<p></p>
+
 ### NOTE ON `SELECT`
 
 ```sql
@@ -319,9 +329,6 @@ SELECT cats.name FROM cats;
 ```sql
 SELECT cats.name, dogs.name FROM cats, dogs;
 ```
-
-
-
 
 SOURCE: learn.co Full Stack Web Development, SQL getting started section
 
