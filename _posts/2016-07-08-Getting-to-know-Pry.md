@@ -73,6 +73,7 @@ tool for a any rubyist.
 ##### NOTE: Different `exit` commands behave differently.
 
 `exit` - 
+
 > only goes back one nesting level, it doesn't exit Pry altogether. So 
 exit is equivalent to _cd .._ except that it can return a user-provided a value.
 
