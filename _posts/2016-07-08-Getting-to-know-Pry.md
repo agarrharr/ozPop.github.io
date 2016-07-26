@@ -3,8 +3,7 @@ layout: post
 title: Getting to know Pry
 ---
 
-A "prymer" to Pry
-- Alex Griffith
+> A "prymer" to Pry - Alex Griffith
 
 *Target audience:* Ruby beginner, someone with little to no experience using Pry.
 
@@ -18,7 +17,7 @@ Discussion points:
 * How to access documentation while in Pry
 
 
-**What are REPL, IRB and Pry?**
+## What are REPL, IRB and Pry?
 
 ----
 
@@ -57,7 +56,7 @@ tool for a any rubyist.
     To install Pry, run the command `gem install pry`.
 
 
-**Useful Commands:**
+## Useful Commands:
 
 ----
 
@@ -71,10 +70,26 @@ tool for a any rubyist.
 
 `help` - list various keywords, aliases and commands with descriptions.
 
-`exit` - in a loop, moves up one iteration or executes until next `binding.pry` 
-statement or exits Pry session.
+##### NOTE: Different `exit` commands behave differently.
 
-`exit-program` or `exit!` or `!!!` - exits the program immediately.
+`exit` - 
+> only goes back one nesting level, it doesn't exit Pry altogether. So 
+exit is equivalent to _cd .._ except that it can return a user-provided a value.
+
+A more familiar example:
+
+If we have **several** `binding.pry` statements in a nested loop, once our 
+program execution enters the first `binding.pry`, typing `exit` will move us 
+out of that first _binding_ and allow the loop to continue until the next
+`binding.pry` statement, otherwise, if no other _bindings_ are present, the 
+program will run its course naturally.
+
+`exit-program` or `exit-p` or `!!!` - exits the program immediately.
+
+`exit!` is similar  to the above, but, [according to this SO answer](http://stackoverflow.com/a/18240464)
+also kills the rails server session.
+
+[see here for more on exit](https://github.com/pry/pry/wiki/State-navigation#exit-a-context-with-a-value)
 
 
 NOTE: Pry offers a lot of what IRB offers and more. Arguably, one 
@@ -83,7 +98,7 @@ execution and give the user an opportunity to debug or verify what is happening
 at that exact place in the code**.
 
 
-**Use case examples**
+## Use case examples
 
 ----
 
@@ -144,7 +159,7 @@ hits the next `binding.pry` statement. Note line 23 in the first three
 snipets and then note line 26 in the fourth one.
 
 
-**Documentation from within Pry**
+## Documentation from within Pry
 
 ----
 
@@ -162,7 +177,7 @@ NOTE:
 
 ![show-method](http://i.imgur.com/KAefRLk.png)
 
-**Conclusion**
+## Conclusion
 
 ----
 
