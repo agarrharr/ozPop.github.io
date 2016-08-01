@@ -1,9 +1,16 @@
 ---
+css: cozy-with-pry
 layout: post
-title: Getting more cozy with Pry
+title: Getting More Cozy With Pry
+header-img: "img/pry-cozy.png"
 ---
 
-Topics to be covered
+Moving beyond the basics.
+
+*Target audience:* Individuals who have some experience with using Pry, Ruby 
+Object Orientation.
+
+Discussion points:
 
 * Using gist to create snippets from pry
 * made a typo in pry?
