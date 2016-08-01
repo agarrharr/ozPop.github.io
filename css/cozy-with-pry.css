@@ -1,0 +1,22 @@
+.navbar-custom .nav li a {
+    color: black;
+}
+
+.navbar-custom .nav li a:hover {
+    color: red;
+}
+
+.intro-header {
+  background-size: contain;
+  background-position: inherit;
+  background-color: white;
+}
+
+.post-heading 
+  h1 {
+    color: red;
+  }
+  span {
+    color: black;
+  }
+

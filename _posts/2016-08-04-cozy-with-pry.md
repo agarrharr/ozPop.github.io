@@ -1,7 +1,7 @@
 ---
 css: cozy-with-pry
 layout: post
-title: Getting More Cozy With Pry
+title: Getting Cozy With Pry
 header-img: "img/cozy-pry.png"
 ---
 
