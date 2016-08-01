@@ -2,13 +2,13 @@
 css: cozy-with-pry
 layout: post
 title: Getting More Cozy With Pry
-header-img: "img/pry-cozy.png"
+header-img: "img/cozy-pry.png"
 ---
 
 Moving beyond the basics.
 
-*Target audience:* Individuals who have some experience with using Pry, Ruby 
-Object Orientation.
+*Target audience:* Individuals who have some experience with using Pry, Object 
+Oriented Ruby.
 
 Discussion points:
 
