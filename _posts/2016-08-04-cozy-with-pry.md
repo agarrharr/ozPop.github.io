@@ -7,7 +7,7 @@ header-img: "img/cozy-pry.png"
 
 Moving beyond the basics.
 
-*Target audience:* Individuals who have some experience with using Pry, Object 
+_Target audience:_ Individuals who have some experience with using Pry, Object 
 Oriented Ruby.
 
 Discussion points:
@@ -19,8 +19,8 @@ Discussion points:
 
 ### Running shell commands
 
-Do a quick intro about the ability to run all sorts of shell commands by prefacing
-the command with a dot `.`.
+You can run the usual shell commands by using dot notation. That is, by prefacing 
+a particular command with a dot while in Pry. E.G.: `.ls`, `.cat`, `.pwd`
 
 ### Editing code
 
