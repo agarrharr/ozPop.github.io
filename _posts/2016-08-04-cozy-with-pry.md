@@ -32,7 +32,7 @@ NOTE: [check here](https://gist.github.com/joelverhagen/1805814) on how to embed
 video into jekyll blog
 [Video example](URL)
 
-
+{% youtube QwbzJbQB0JA %}
 
 ### Using gist to create snippets from pry
     * using -l to show line numbers
