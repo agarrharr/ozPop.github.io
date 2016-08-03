@@ -15,8 +15,10 @@
 .post-heading 
   h1 {
     color: red;
+    text-align: right;
   }
   span {
     color: black;
+    text-align: right;
   }
 
