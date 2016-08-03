@@ -15,11 +15,13 @@ Discussion points:
 * Running shell commands from Pry console
 * Editing code from within Pry session
 * Using `gist` to create snippets
-* Exploring contexts
+* Exploring Pry contexts
 
 <br>
 
 ### Running shell commands
+
+----
 
 You can run the usual shell commands by using dot notation. That is, by prefacing 
 a particular command with a dot while in Pry. E.G.: `.ls`, `.cat`, `.pwd`.
@@ -34,6 +36,8 @@ Watch the video for a quick exmaple:
 <br>
 
 ### Editing code
+
+----
 
 You can edit code from within a Pry session. To do that we use the `edit` 
 command. Just point the command to a whole file or tell Pry you want to edit a 
@@ -51,7 +55,9 @@ case of sublime, just add:
 
 <br>
 
-### Using gist to create snippets from pry
+### Using gist
+
+----
 
 We can create snippets of code without leaving pry. Using the `gist` command,
 Pry allows us to push code to [GitHub Gist](https://gist.github.com/) on the fly.
@@ -72,16 +78,77 @@ How to create a gist in Pry:
 
 ### Exploring contexts
 
-* what is context?
-    * how to load class contexts
-        * using require_relative (http://i.imgur.com/aYnCgvh.png)
-    * examples of main context
-    * class context
-    * instance of class context
-* requiring objects
-* moving around in different scopes
-* showing nesting
-* jumpt-to specific scope
+----
+
+#### What is a context? 
+
+I found it helpful to think of context as visibility of entities,
+entities being a variable, method, class or file. In Prys' case, it is usually 
+variables and methods.
+
+When you start Pry from the terminal or outside the scope of a class in any given 
+file, Pry will start in default context. The default context is known as `main`.
+
+The `main` context, by default, gives you access to various built in ruby objects.
+
+![Main context example](http://i.imgur.com/wYpsHZM.png)
+
+The fun begins when we start Pry in locations where it has access to various 
+other contexts such as: our own classes and objects or objects that we bring into
+out projects via various gems. In addition to starting Pry in specific locations 
+that give access to those contexts, we can bring contexts into our Pry session.
+
+We can load class contexts into Pry using `require_relative`.
+
+![Require relative farmer class](http://i.imgur.com/tOhz8eH.png)
+
+Or we can require the whole environment! This will gives us access to all of 
+the contexts.
+
+![Require the whole evironment](http://i.imgur.com/aYnCgvh.png)
+
+_NOTE:_ If you use the `edit` command to edit a praticular class, the class 
+context becomes available automatically.
+
+#### Starting in a particular context
+
+We can start Pry within a class context or within an instance of a class. when 
+we insert a `binding.pry` or `Pry.start` inside the class itself.
+
+_NOTE:_ Keep in mind that when execution hits `Pry.start` it starts a new session!
+
+Lets use `binding.pry` of our example.
+
+**Prying into a class**
+
+![Prying into a class](http://i.imgur.com/9faPp6h.png)
+
+**Prying into an instance of class**
+
+![Prying into an instance of a class](http://i.imgur.com/hnBaNBI.png)
+
+**What is the difference?**
+
+List while in class context:
+
+![ls class context](http://i.imgur.com/LMmfi89.png)
+
+List while in instance context:
+
+![ls instance context](http://i.imgur.com/3Ouci1U.png)
+
+### Looking and moving around contexts
+
+Using commands like `cd` and `ls` we can move in and out of contexts or inspect 
+those contexts.
+
+When we move into different contexts (e.g.: classes) Pry is keeping track of 
+where we are. We can inspect how deeply nested we are by invoking a command 
+called `nesting`.
+
+Using `jumpt-to` command we can quickly move around different contexts.
+
+![exmaple of moving around in contexts](video url)
 
 
 Pry Part 3 blog?
