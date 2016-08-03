@@ -22,7 +22,10 @@ Discussion points:
 ### Running shell commands
 
 You can run the usual shell commands by using dot notation. That is, by prefacing 
-a particular command with a dot while in Pry. E.G.: `.ls`, `.cat`, `.pwd`
+a particular command with a dot while in Pry. E.G.: `.ls`, `.cat`, `.pwd`.
+
+This is particularly helpful if you need to edit or move files on the fly without
+leaving the Pry session.
 
 Watch the video for a quick exmaple:
 
@@ -33,8 +36,16 @@ Watch the video for a quick exmaple:
 ### Editing code
 
 You can edit code from within a Pry session. To do that we use the `edit` 
-command. For example, lets edit a class method called `list_animal_types`. Watch
-the video below for a quick example of that workflow.
+command. Just point the command to a whole file or tell Pry you want to edit a 
+specific method.
+
+For example, lets edit a class method called `list_animal_types` in which we 
+correct some code. Watch the video below for a quick example of that workflow.
+
+_NOTE:_ Please edit your _~/.pryrc_ file and specify your desired editor. In the
+case of sublime, just add:
+
+`Pry.config.editor = 'sublime -n'` (the `-n` flag will open a new sublime window)
 
 {% youtube QwbzJbQB0JA %}
 
@@ -43,9 +54,13 @@ the video below for a quick example of that workflow.
 ### Using gist to create snippets from pry
 
 We can create snippets of code without leaving pry. Using the `gist` command,
-pry allows us to push code to [GitHub Gist](https://gist.github.com/) on the fly.
+Pry allows us to push code to [GitHub Gist](https://gist.github.com/) on the fly.
 
-NOTE: I am using `-l` flag at the end in order to show line numbers.
+_NOTE:_ In order to be able to use this feature you may have to install the 
+**gist gem**. Just run `gem install gist` in case you dont have the gem and 
+want to use this feature.
+
+_NOTE#2:_ I am using `-l` flag at the end in order to display line numbers.
 
 How to create a gist in Pry:
 
@@ -53,7 +68,7 @@ How to create a gist in Pry:
 
 ![Gist](http://i.imgur.com/CS2A2uF.png)
 
-
+<br>
 
 ### Exploring contexts
 
