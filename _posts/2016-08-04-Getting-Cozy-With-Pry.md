@@ -31,7 +31,7 @@ leaving the Pry session.
 
 Watch the video for a quick example:
 
-{% youtube -7cNsFJ8gGc %}
+[Video Link](https://youtu.be/-7cNsFJ8gGc)
 
 <br>
 
@@ -58,7 +58,7 @@ correct some code. Watch the video below for a quick example of that work flow.
 
 Using the `edit` command in pry:
 
-{% youtube QwbzJbQB0JA %}
+[Video Link](https://youtu.be/QwbzJbQB0JA)
 
 <br>
 
@@ -175,7 +175,7 @@ are _nested_ in.
 
 View the below video for examples how these commands work:
 
-{% youtube -RomBt0IpQk %}
+[Video Link](https://youtu.be/-RomBt0IpQk)
 
 <br>
 
