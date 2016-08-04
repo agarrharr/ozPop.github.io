@@ -205,7 +205,7 @@ _NOTE:_ Clear input buffer with `!` and check out what searching `history` is.
 
 ##### Remember, when bugs surface, you can't go wrong by choosing a crowbar.
 
-<b></b>
+<br>
 
 ### Sources
 
