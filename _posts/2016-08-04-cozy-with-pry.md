@@ -82,9 +82,9 @@ How to create a gist in Pry:
 
 #### What is a context? 
 
-I found it helpful to think of context as visibility of entities,
-entities being a variable, method, class or file. In Prys' case, it is usually 
-variables and methods.
+I found it helpful to think of context as visibility of **"entities"**,
+entities being a method, class, object, scope or file. In Prys' case, 
+it is usually objects.
 
 When you start Pry from the terminal or outside the scope of a class in any given 
 file, Pry will start in default context. The default context is known as `main`.
@@ -94,8 +94,8 @@ The `main` context, by default, gives you access to various built in ruby object
 ![Main context example](http://i.imgur.com/wYpsHZM.png)
 
 The fun begins when we start Pry in locations where it has access to various 
-other contexts such as: our own classes and objects or objects that we bring into
-out projects via various gems. In addition to starting Pry in specific locations 
+other contexts such as: our own classes or objects that we bring into our 
+projects via various gems. In addition to starting Pry in specific locations 
 that give access to those contexts, we can bring contexts into our Pry session.
 
 We can load class contexts into Pry using `require_relative`.
@@ -137,10 +137,12 @@ List while in instance context:
 
 ![ls instance context](http://i.imgur.com/3Ouci1U.png)
 
-### Looking and moving around contexts
+### Listing contents and moving around contexts
 
 Using commands like `cd` and `ls` we can move in and out of contexts or inspect 
-those contexts.
+those contexts. The behavior of these two commands is similar to how they behave
+in bash. `cd` can be used to move in and out of contexts (objects or scopes) and 
+`ls` is useful when inspecting the contents of said entities.
 
 When we move into different contexts (e.g.: classes) Pry is keeping track of 
 where we are. We can inspect how deeply nested we are by invoking a command 
@@ -148,13 +150,30 @@ called `nesting`.
 
 Using `jumpt-to` command we can quickly move around different contexts.
 
-![exmaple of moving around in contexts](video url)
+View the below video for examples how these commands work:
+
+{% youtube -RomBt0IpQk %}
+
+### Conclusion
+
+Getting involved with Pry and Prys' more advanced features has proven to be 
+invaluable to me. I rely on Pry a lot in order to make sense of what is happening
+in the code I am working with at any given time. I highly recommend that you review 
+Pry documetation and related resources in order to become more familiar with 
+this awesome tool.
 
 
-Pry Part 3 blog?
+### Other useful related tips:
 
-* Made a typo in pry?
-    * explain how `show-input` works
-    * clear buffer with `!`
-    * how to `amend-line #`
-* Searching history
+Made a typo while writing a method in Pry?
+
+* Explore how `show-input` works and how to `amend-line #`.
+
+_NOTE:_ Clear input buffer with `!` and check out what searching `history` is.
+
+### Sources
+
+* [Offical Docs](https://github.com/pry/pry/wiki)
+* [Intro Screencast](http://vimeo.com/26391171)
+* [Useful Features In Pry](http://www.bignerdranch.com/blog/my-top-5-pry-features/)
+* [In-Depth Look At binging.pry](http://kyrylo.hatenablog.com/entry/2013/05/29/so-what-is-binding-pry-exactly)
