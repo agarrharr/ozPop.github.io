@@ -1,0 +1,11 @@
+.post-heading 
+  h1 {
+  color: transparent;
+  }
+  span {
+    color: transparent;
+  }
+
+p img {
+  margin: 0 auto;
+}
