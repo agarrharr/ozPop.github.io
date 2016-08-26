@@ -17,7 +17,7 @@ My link management solutions are bookmarking or emailing links to myself to be b
 
 I thought it may be useful to have quick access to a web application that makes it easy for a user to categorize, annotate and store links.
 
-I am not sure if or what alternative applications exist that ackomplish this. At this moment in time that is not important to me. The important thing is that it meets my assessment requirements, challenges me to apply various things I have been learning and ideally turns out to be useful.
+I am not sure if or what alternative applications exist that accomplish this. At this moment in time that is not important to me. The important thing is that it meets my assessment requirements, challenges me to apply various things I have been learning and ideally turns out to be useful.
 
 ## Thinking about models and relationships
 
@@ -42,7 +42,7 @@ The basic functionality:
 
 ## Starting to code things
 
-Starting to code a project is quite a daunting exprience for me. As we have been shown throughout the curriculum so far, I broke down the requirements and tackled them one at a time.
+Starting to code a project is quite a daunting experience for me. As we have been shown throughout the curriculum so far, I broke down the requirements and tackled them one at a time.
 
 * Deciding how to store data
     * Postgres
@@ -88,7 +88,7 @@ In other words, due to the fast growing number of devices that get connected to 
 
 ### Mobile First 
 
-The approach was created by Luke Wroblewski and it prioratizes mobile context when creating user experiences.
+The approach was created by Luke Wroblewski and it prioritizes mobile context when creating user experiences.
 
 ![Luke Wroblewski](http://i.imgur.com/mmRHeie.png)
 
@@ -120,7 +120,7 @@ If you are not familiar with Ethan's work or just find it interesting I recommen
 
 ## Conclusion
 
-In conclusion, unless you know that your target audiance is strictly non mobile, I encourage you to keep the mobile first approach in mind because of the reasons outlined above. I believe that thinking about the layout, emphasising content, maintaining clarity and focus and keeping user perspective in mind is an important part of creating web applications.
+In conclusion, unless you know that your target audience is strictly non mobile, I encourage you to keep the mobile first approach in mind because of the reasons outlined above. I believe that thinking about the layout, emphasizing content, maintaining clarity and focus and keeping user perspective in mind is an important part of creating web applications.
 
 
 ### Sources
