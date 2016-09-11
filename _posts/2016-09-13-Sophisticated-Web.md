@@ -21,15 +21,15 @@ What I have since discovered is that the ammount of layers of comlexity that exi
 
 ## The Answer
 
-Upon entering a URL and requesting a website to be displayed the user triggers a chain of processes that encompass mutliple layers of technologies and protocols. The proccesses are so complex that it would require several college level networking courses to fully explain and cover all the parts.
+Upon entering a URL and requesting a website to be displayed the user triggers a chain of processes that encompass mutliple layers of technologies and protocols. The proccesses are so complex that it would require several college level networking courses to fully explain.
 
 Below is an explanation that covers only the some of the cases and gollses over the overall process of a quintessential web request.
 
-1. User enters URL
-2. DNS lookup
-3. Establishing Client/Server connection
-4. Client HTTP request sent
-5. Server processing
+1. [User enters URL](user-enters-url)
+2. [DNS lookup](dns-lookup)
+3. [Initiate TCP/IP connection](initiate-tcp-ip-connection)
+4. [Client HTTP request](client-http-request)
+5. [Server Processes Payload](server-processes-payload)
 6. Server HTTP response sent
 7. Client processing
 8. Client renders document
@@ -72,17 +72,41 @@ The steps of DNS lookup:
 A client can retrieve a resource using an IP directly however, some websites have multiple servers in multiple locations to support millions of requests simultaneously. Using a URL, we let the host decide which IP our client should connect to. This involves a **load-balancer** which is a piece of hardware that listens on a particular IP address and forwards the requests to other servers. Major sites will typically use load balancers.
 
 
-### Initiate TCP/IP connection
-    * Open the "network socket"
+### Initiate TCP IP connection
+
+Communication between networked computers is carried out using protocol suits. The most widely used and most widely available protocol suite is TCP/IP protocol suite. TCP/IP is considered to be a 4 layer system. 
+
+![TCP/IP concept pic](http://www.thegeekstuff.com/wp-content/uploads/2011/10/tcp-ip.png)
+
+For the purposes of this blog, the most important thing to mention is that once a client recieves an IP address, the following step is opening of a **"network socket"** so that a client and server can communicate.
+
+> A socket is one endpoint of a two-way communication link between two programs running on the network. A socket is bound to a port number so that the TCP layer can identify the application that data is destined to be sent to.
+
+### Client HTTP request
+
+Once client successfuly initiates a TCP connection with the server, it prepares an HTTP request according to the specification of the HTTP protocol to be sent to the host.
+
+Various information is included in the form of headers.
+
+![Request Header Example pic](https://cdn.tutsplus.com/net/uploads/legacy/511_http/request_header.png)
+
+* **Initial Request Line**
+* **Accept-Encoding** headers specify the type of responses it will accept
+* **User-Agent** header specifies the browser properties
+* **Connection** header tells the server to keep open the TCP connection
+* **Host** URL
+* **Cookies** may be included
 
 
+### Server Processes Payload
 
-* Client assembles HTTP request and sends it
-    * Various information is included in the request
-* Server recieves the request payload
-    * Web Server application processes the request by launching proper request handler
-        * A program that handles web services: PHP, Ruby, Java, Python
-        * This program will generate a response which will be sent back
+Web Server application processes the request by launching proper request handler
+
+A program that handles web services: PHP, Ruby, Java, Python
+
+This program will generate a response which will be sent back
+
+
 * Client recieves the response payload
     * Various information is included in the reponse
 * Client browser processes recieved content
@@ -95,3 +119,6 @@ A client can retrieve a resource using an IP directly however, some websites hav
 1. [URL - Wikipedia](https://en.wikipedia.org/wiki/Uniform_Resource_Locator)
 2. [Host Name Resolution](https://technet.microsoft.com/en-us/library/cc958812.aspx)
 3. [Difference between Authoritative and Recursive DNS](https://blog.opendns.com/2014/07/16/difference-authoritative-recursive-dns-nameservers/)
+4. [TCP/IP Protocol Fundamentals](http://www.thegeekstuff.com/2011/11/tcp-ip-fundamentals/)
+5. [A brief overview of TCP/IP communications](http://www.taltech.com/datacollection/articles/a_brief_overview_of_tcp_ip_communications)
+6. [What Is a Socket?](https://docs.oracle.com/javase/tutorial/networking/sockets/definition.html)
