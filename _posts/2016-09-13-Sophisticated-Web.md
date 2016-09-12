@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Sophisticated Web Request
+title: A Look At The Steps Behind A Web Request
 ---
 
 ## Blog Topic and Why I Chose It
