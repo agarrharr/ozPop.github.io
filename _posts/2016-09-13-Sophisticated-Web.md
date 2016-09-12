@@ -100,13 +100,13 @@ Once client successfuly initiates a TCP connection with the server, it prepares 
 Various information is included in the form of headers.
 
 <span style="color: blue; font-size: 14px;">
-GET http://google.com/ HTTP/1.1<br>
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8<br>
-User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0<br>
-Accept-Encoding: gzip, deflate<br>
-Connection: Keep-Alive<br>
-Host: google.com<br>
-Cookie: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]
+    GET http://google.com/ HTTP/1.1<br>
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8<br>
+    User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0<br>
+    Accept-Encoding: gzip, deflate<br>
+    Connection: Keep-Alive<br>
+    Host: google.com<br>
+    Cookie: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]
 </span>
 
 * **Initial Request Line**
@@ -128,11 +128,47 @@ A Web Server application processes the request by launching a proper request han
 
 Various information is included in the reponse
 
+<span style="color: blue; font-size: 14px;">
+    HTTP/1.1 200 OK<br>
+    Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0, pre-check=0<br>
+    Expires: Thu, 19 Nov 1981 08:52:00 GMT<br>
+    Pragma: no-cache<br>
+    Content-Encoding: gzip<br>
+    Content-Type: text/html; charset=utf-8<br>
+    Connection: Keep-Alive<br>
+    Content-length: 1215<br>
+    Date: Fri, 30 May 2014 08:10:15 GMT<br>
+    <br>
+    .........[some blob]................
+</span>
+
+An HTTP response header is similar to that of the request. It includes information that gives a client metadata in order to process that response.
+
+* **HTTP Version and Status Code**
+* **Content Type** specified as MIME type
+* **Content Encoding**
+* **Content Length**
+* **Server info**
+* **Date Info**
+* **Cache Directives**
+* **Cookie Info**
+* and more...
+
+### Client renders the document
+
+Using the metadata the browser parses the response to render the web page. The browser may make more requests, using the same procedures outlined above. This is done to fetch any new resource that is found as embedded content. Typically media, style sheets, javascript files.
+
+A DOM tree is built out of broken HTML. Style sheets and javascript files are parsed and DOM nodes are moved and styled to match the directives of aforemantioned files.
+
+Finally, the browser renders the page on the screen accroding to the DOM tree and the style information of each node.
+
+AJAX requests may be made to communicate with the web server even after the page is rendered
+
+![Content Rendering Pic](http://taligarsiel.com/Projects/image008.jpg)
+
+## Conclusion
 
 
-* Client browser processes recieved content
-    * Add detailed steps
-* Client renders the document
 
 
 ## SOURCES
