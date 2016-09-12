@@ -30,15 +30,15 @@ Below is an explanation that covers only the some of the cases and gollses over 
 3. [Initiate TCP/IP connection](initiate-tcp-ip-connection)
 4. [Client HTTP request](client-http-request)
 5. [Server Processes Payload](server-processes-payload)
-6. Server HTTP response sent
+6. [Server HTTP response sent](server-http-response-sent)
 7. Client processing
 8. Client renders document
 
 ### User Enters URL
 
-URL stands for **Uniform Resource Locator**, more commonly known as a **Web Address**. It is an address identifier of a web resource on a computer network and is mechanism for obtaininig that resource.
+URL stands for **Uniform Resource Locator**, more commonly known as a **Web Address**. It is an identifier of a web resource on a computer network and is mechanism for obtaininig that resource.
 
-As a mechanism it specifies how information is to be transfered, most commonly using the HTTP protocol. Among others are HTTPS, FTP, EMAIL and more.
+As a mechanism it specifies how information is to be transfered, most commonly using the HTTP protocol. Some other protocols are HTTPS, FTP, EMAIL and more.
 
 It also contains a host name which is an alias for an IP address used to identify a machine connected to the web.
 
@@ -48,15 +48,15 @@ Once the browser parses the URL that has been passed into the address field, a D
 
 The steps of DNS lookup:
 
-* Check browser cache
+1. Check browser cache
     * Browsers caches DNS records for a fixed duration
-* Check OS cache
+2. Check OS cache
     * Browsers makes a system call to check OS cache
-* Router Cache
+3. Check Router Cache
     * Typically routers contain a cache of DNS records
-* ISP Cache
+4. Check ISP Cache
     * Next up is ISP cache if the above steps fail
-* Recursive Search
+5. Perform a Recursive Search
     * Lastly ISPs recursive search kicks in, going through the authoritative DNS hierarchy.
 
 ![Authoritative DNS Hierarchy Pic](https://s3-us-west-1.amazonaws.com/umbrella-blog-uploads/wp-content/uploads/2014/07/Screen-Shot-2014-07-16-at-10.56.09-AM.png)
@@ -67,16 +67,27 @@ The steps of DNS lookup:
 (5) Then “google.com” is asked where to find “www.google.com”.<br>
 </sup>
 
+Assuming the DNS lookup is successful, the client machine obtains an IP address that uniquely identifies another machine on the Internet.
+
 #### NOTE:
 
-A client can retrieve a resource using an IP directly however, some websites have multiple servers in multiple locations to support millions of requests simultaneously. Using a URL, we let the host decide which IP our client should connect to. This involves a **load-balancer** which is a piece of hardware that listens on a particular IP address and forwards the requests to other servers. Major sites will typically use load balancers.
+A client can retrieve a resource using an IP directly however, some websites have multiple servers in multiple locations to support millions of requests simultaneously. Using a URL, we let the host decide which IP our client should connect to. This helps prevent bottlenecks, improves scalability, response speed and user experience overall. A **load-balancer** for example, is a piece of hardware that listens on a particular IP address and forwards the requests to other servers. Major sites will typically use load balancers to process a higher work load.
+
+![Load balancer pic](http://tutorials.jenkov.com/images/software-architecture/load-balancing-1.png)
 
 
 ### Initiate TCP IP connection
 
-Communication between networked computers is carried out using protocol suits. The most widely used and most widely available protocol suite is TCP/IP protocol suite. TCP/IP is considered to be a 4 layer system. 
+Communication between networked computers is carried out using protocol suits. The most widely used and most widely available protocol suite is TCP/IP protocol suite. It provides end-to-end connectivity specifing how data should be packeted, addressed, trasmitted, routed and received at the destination. TCP/IP is considered to be a 4 layer system. 
 
-![TCP/IP concept pic](http://www.thegeekstuff.com/wp-content/uploads/2011/10/tcp-ip.png)
+![TCP/IP concept pic](https://cdn.tutsplus.com/net/uploads/2013/07/img004.png)
+
+<sup>
+    **Application Layer** includes applications or processes that use transport layer protocols to deliver the data<br>
+    **Transport Layer** utilizes various protocols to facilitate data flow between two hosts<br>
+    **Network Layer** organizes and handles the movement of data on a network<br>
+    **Data Link Layer** consists of drivers on the OS and a network interface which handle communication details
+</sup>
 
 For the purposes of this blog, the most important thing to mention is that once a client recieves an IP address, the following step is opening of a **"network socket"** so that a client and server can communicate.
 
@@ -88,7 +99,15 @@ Once client successfuly initiates a TCP connection with the server, it prepares 
 
 Various information is included in the form of headers.
 
-![Request Header Example pic](https://cdn.tutsplus.com/net/uploads/legacy/511_http/request_header.png)
+<span style="color: blue; font-size: 14px;">
+GET http://google.com/ HTTP/1.1<br>
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8<br>
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0<br>
+Accept-Encoding: gzip, deflate<br>
+Connection: Keep-Alive<br>
+Host: google.com<br>
+Cookie: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]
+</span>
 
 * **Initial Request Line**
 * **Accept-Encoding** headers specify the type of responses it will accept
@@ -97,18 +116,20 @@ Various information is included in the form of headers.
 * **Host** URL
 * **Cookies** may be included
 
+An HTTP request is sent out in packets. Similar to how a DNS query was performed earlier. The packets are sequenced so that they can be reassembled once they reach the destination even if they arrive out of order.
 
 ### Server Processes Payload
 
-Web Server application processes the request by launching proper request handler
+A Web Server application processes the request by launching a proper request handler. A request handler is a program (written in PHP, Ruby, Java, Python) that reads the request, its parameters, and cookies. The handler may interact with a database updating some stored records. It will then generate a response which will be sent back to the client. This may be a static page or a dynamic response, generated in a number of different ways.
 
-A program that handles web services: PHP, Ruby, Java, Python
+![HTTP Request Diagram pic](https://i0.wp.com/www.dotnetfunda.com/UserFiles/ArticlesFiles/Abhijit%20Jana_634041501029987812_IISProcessRequest.JPG)
 
-This program will generate a response which will be sent back
+### Server HTTP response sent
+
+Various information is included in the reponse
 
 
-* Client recieves the response payload
-    * Various information is included in the reponse
+
 * Client browser processes recieved content
     * Add detailed steps
 * Client renders the document
