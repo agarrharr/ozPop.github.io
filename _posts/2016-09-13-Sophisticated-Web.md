@@ -4,6 +4,7 @@ title: The Sophisticated Web Request
 ---
 
 ## Blog Topic and Why I Chose It
+----
 
 Last month, I met a friend at Bierocracy, a beer hall located in Long Island City. My friend, whom I will refer to as Dr.Lezaru, has been involved in web development field for over a decade. As we shared our experiences while enjoying the lovely brew and the effects of alchohol on our pallets and minds, I was presented with a question.
 
@@ -20,38 +21,41 @@ So, after having another Yeti and hearing about the intricacies behind the proce
 What I have since discovered is that the ammount of layers of comlexity that exist when you request that site is staggering. My goal for this post is to condense as much as possible the whole process, so that when I am asked this question again, I can provide a better answer than the one I gave in the past.
 
 ## The Answer
+----
 
 Upon entering a URL and requesting a website to be displayed the user triggers a chain of processes that encompass mutliple layers of technologies and protocols. The proccesses are so complex that it would require several college level networking courses to fully explain.
 
-Below is an explanation that covers only the some of the cases and gollses over the overall process of a quintessential web request.
+Below is an attempt to cover only the some of the cases and gloss over the overall process of a quintessential web request.
 
-1. [User enters URL](user-enters-url)
-2. [DNS lookup](dns-lookup)
-3. [Initiate TCP/IP connection](initiate-tcp-ip-connection)
-4. [Client HTTP request](client-http-request)
+1. [User Enters URL](user-enters-url)
+2. [DNS Lookup](dns-lookup)
+3. [Initiate TCP/IP Connection](initiate-tcp-ip-connection)
+4. [Client HTTP Request](client-http-request)
 5. [Server Processes Payload](server-processes-payload)
-6. [Server HTTP response sent](server-http-response-sent)
-7. Client processing
-8. Client renders document
+6. [Server HTTP Response](server-http-response)
+7. [Client Renders Document](client-renders-document)
+8. [Conclusion](conclusion)
 
 ### User Enters URL
+----
 
-URL stands for **Uniform Resource Locator**, more commonly known as a **Web Address**. It is an identifier of a web resource on a computer network and is mechanism for obtaininig that resource.
+_URL_ stands for **Uniform Resource Locator**, more commonly known as a **Web Address**. It is an identifier of a web resource on a computer network and is a mechanism for obtaininig that resource.
 
-As a mechanism it specifies how information is to be transfered, most commonly using the HTTP protocol. Some other protocols are HTTPS, FTP, EMAIL and more.
+As a mechanism it specifies how information is to be transfered, most commonly using the HTTP protocol. Some other protocols are HTTPS, SSH, FTP, Telnet and more.
 
-It also contains a host name which is an alias for an IP address used to identify a machine connected to the web.
+A URL also contains a host name which is an alias for an IP address used to identify a machine connected to the web.
 
 ### DNS lookup
+----
 
 Once the browser parses the URL that has been passed into the address field, a DNS lookup is performed. The browser first needs an IP address in order to identify a host and initialize a TCP/IP connection.
 
 The steps of DNS lookup:
 
-1. Check browser cache
-    * Browsers caches DNS records for a fixed duration
-2. Check OS cache
-    * Browsers makes a system call to check OS cache
+1. Check Browser Cache
+    * Browsers cache DNS records for a fixed duration
+2. Check OS Cache
+    * Browsers make a system call to check OS cache
 3. Check Router Cache
     * Typically routers contain a cache of DNS records
 4. Check ISP Cache
@@ -67,18 +71,20 @@ The steps of DNS lookup:
 (5) Then “google.com” is asked where to find “www.google.com”.<br>
 </sup>
 
-Assuming the DNS lookup is successful, the client machine obtains an IP address that uniquely identifies another machine on the Internet.
+Assuming the DNS lookup is successful, the client obtains an IP address that uniquely identifies another machine on the Internet.
 
 #### NOTE:
 
-A client can retrieve a resource using an IP directly however, some websites have multiple servers in multiple locations to support millions of requests simultaneously. Using a URL, we let the host decide which IP our client should connect to. This helps prevent bottlenecks, improves scalability, response speed and user experience overall. A **load-balancer** for example, is a piece of hardware that listens on a particular IP address and forwards the requests to other servers. Major sites will typically use load balancers to process a higher work load.
+A client can retrieve a resource using an IP directly. Because some websites have multiple servers in multiple locations to support millions of requests simultaneously, and so by using a URL we let the host decide which IP our client should connect to.This helps prevent bottlenecks, improves scalability, response speed and user experience overall.
 
 ![Load balancer pic](http://tutorials.jenkov.com/images/software-architecture/load-balancing-1.png)
 
+<sub>A **load-balancer** for example, is a piece of hardware that listens on a particular IP address and forwards the requests to other servers. Major sites will typically use load balancers to process a higher work load.</sub>
 
 ### Initiate TCP IP connection
+----
 
-Communication between networked computers is carried out using protocol suits. The most widely used and most widely available protocol suite is TCP/IP protocol suite. It provides end-to-end connectivity specifing how data should be packeted, addressed, trasmitted, routed and received at the destination. TCP/IP is considered to be a 4 layer system. 
+Communication between networked computers is carried out using protocol suits. The most widely used and most widely available protocol suite is TCP/IP protocol suite. It provides end-to-end connectivity specifing _how data should be packed, addressed, trasmitted, routed and received_ at the destination. TCP/IP is considered to be a 4 layer system. 
 
 ![TCP/IP concept pic](https://cdn.tutsplus.com/net/uploads/2013/07/img004.png)
 
@@ -93,9 +99,18 @@ For the purposes of this blog, the most important thing to mention is that once 
 
 > A socket is one endpoint of a two-way communication link between two programs running on the network. A socket is bound to a port number so that the TCP layer can identify the application that data is destined to be sent to.
 
-### Client HTTP request
+#### NOTE on transport layer:
 
-Once client successfuly initiates a TCP connection with the server, it prepares an HTTP request according to the specification of the HTTP protocol to be sent to the host.
+Two most commonly used protocols at transport layer are TCP and UDP.
+
+* **TCP is used where a reliable connection is required.** For example while downloading a file, it is not desired to loose any information.
+* **UDP is used in case of unreliable connections.** For example while streaming a videa, loss of a few bytes is acceptable.
+
+
+### Client HTTP request
+----
+
+Once a client successfuly initiates a TCP connection with the server, it prepares an HTTP request according to the specification of the HTTP protocol to be sent to the host.
 
 Various information is included in the form of headers.
 
@@ -119,14 +134,16 @@ Various information is included in the form of headers.
 An HTTP request is sent out in packets. Similar to how a DNS query was performed earlier. The packets are sequenced so that they can be reassembled once they reach the destination even if they arrive out of order.
 
 ### Server Processes Payload
+----
 
-A Web Server application processes the request by launching a proper request handler. A request handler is a program (written in PHP, Ruby, Java, Python) that reads the request, its parameters, and cookies. The handler may interact with a database updating some stored records. It will then generate a response which will be sent back to the client. This may be a static page or a dynamic response, generated in a number of different ways.
+Once the request payload arrives at the destination, a **web werver application** processes the request by launching a proper request handler. _A request handler is a program (written in PHP, Ruby, Java, Python) that reads the request, its parameters, and cookies_. The handler may interact with a database updating some stored records.
 
 ![HTTP Request Diagram pic](https://i0.wp.com/www.dotnetfunda.com/UserFiles/ArticlesFiles/Abhijit%20Jana_634041501029987812_IISProcessRequest.JPG)
 
-### Server HTTP response sent
+The handler will then generate a response which will be sent back to the client. This may be a static page or a dynamic response, generated in a number of different ways.
 
-Various information is included in the reponse
+### Server HTTP Response
+----
 
 <span style="color: blue; font-size: 14px;">
     HTTP/1.1 200 OK<br>
@@ -154,20 +171,27 @@ An HTTP response header is similar to that of the request. It includes informati
 * **Cookie Info**
 * and more...
 
-### Client renders the document
+### Client Renders Document
+----
 
-Using the metadata the browser parses the response to render the web page. The browser may make more requests, using the same procedures outlined above. This is done to fetch any new resource that is found as embedded content. Typically media, style sheets, javascript files.
+Using the metadata a browser parses the response to render the web page. The browser may make more requests, using the same procedures outlined above. This is done to fetch any new resource that are found as embedded content. Typically media, style sheets, javascript files.
 
 A DOM tree is built out of broken HTML. Style sheets and javascript files are parsed and DOM nodes are moved and styled to match the directives of aforemantioned files.
 
 Finally, the browser renders the page on the screen accroding to the DOM tree and the style information of each node.
 
-AJAX requests may be made to communicate with the web server even after the page is rendered
-
 ![Content Rendering Pic](http://taligarsiel.com/Projects/image008.jpg)
 
-## Conclusion
+#### NOTE:
 
+AJAX requests may be made to communicate with the web server even after the page is rendered.
+
+## Conclusion
+----
+
+Thinking about the series of events that take place when a URL is entered into an address bar is invigorating. Such a simple step, in the background, triggers an extremely large number of procedures which are layered in an equally larged number of abstractions.
+
+Writing this blog post has given me the opportunity to look deeper into the processes that are involved in web applications and networking.
 
 
 
@@ -179,3 +203,7 @@ AJAX requests may be made to communicate with the web server even after the page
 4. [TCP/IP Protocol Fundamentals](http://www.thegeekstuff.com/2011/11/tcp-ip-fundamentals/)
 5. [A brief overview of TCP/IP communications](http://www.taltech.com/datacollection/articles/a_brief_overview_of_tcp_ip_communications)
 6. [What Is a Socket?](https://docs.oracle.com/javase/tutorial/networking/sockets/definition.html)
+7. [Quore Related Question](https://www.quora.com/What-are-the-series-of-steps-that-happen-when-an-URL-is-requested-from-the-address-field-of-a-browser)
+8. [What really happens when you navigate to a URL](http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/)
+9. [What happens when you type a URL in browser](http://edusagar.com/articles/view/70/What-happens-when-you-type-a-URL-in-browser)
+10. [HTTP Succinctly](http://code.tutsplus.com/series/http-succinctly--net-33683)
