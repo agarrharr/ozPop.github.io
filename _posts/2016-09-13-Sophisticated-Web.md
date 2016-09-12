@@ -1,6 +1,8 @@
 ---
+css: sophisticated-web
 layout: post
 title: A Look At The Steps Behind A Web Request
+header-img: ""
 ---
 
 ## Blog Topic and Why I Chose It
@@ -114,7 +116,7 @@ Once a client successfuly initiates a TCP connection with the server, it prepare
 
 Various information is included in the form of headers.
 
-<span style="color: blue; font-size: 14px;">
+<p class="http-requests">
     GET http://google.com/ HTTP/1.1<br>
     Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8<br>
     User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0<br>
@@ -122,7 +124,7 @@ Various information is included in the form of headers.
     Connection: Keep-Alive<br>
     Host: google.com<br>
     Cookie: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]
-</span>
+</p>
 
 * **Initial Request Line**
 * **Accept-Encoding** headers specify the type of responses it will accept
@@ -145,7 +147,7 @@ The handler will then generate a response which will be sent back to the client.
 ### Server HTTP Response
 ----
 
-<span style="color: blue; font-size: 14px;">
+<p class="http-requests">
     HTTP/1.1 200 OK<br>
     Cache-Control: private, no-store, no-cache, must-revalidate, post-check=0, pre-check=0<br>
     Expires: Thu, 19 Nov 1981 08:52:00 GMT<br>
@@ -157,7 +159,7 @@ The handler will then generate a response which will be sent back to the client.
     Date: Fri, 30 May 2014 08:10:15 GMT<br>
     <br>
     .........[some blob]................
-</span>
+</p>
 
 An HTTP response header is similar to that of the request. It includes information that gives a client metadata in order to process that response.
 

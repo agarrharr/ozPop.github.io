@@ -1,0 +1,20 @@
+.intro-header {
+  background: white; 
+}
+
+.post-heading h1 {
+  color: black;
+}
+
+.post-heading span {
+    color: red;
+  }
+
+p img {
+  margin: 0 auto;
+}
+
+.http-requests {
+  color: blue;
+  font-size: 14px;
+}
