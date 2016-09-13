@@ -51,6 +51,8 @@ A URL also contains a domain name which is an alias for an IP address used to id
 ### DNS lookup
 ----
 
+A **Domain Name System** is one of the protocols that comprise TCP/IP suite. It is a service that translates domain names into IP addresses. Domain names are alphabetic which makes them easier to remember and hence more user friendly while web resrouces are actually identified using IP addresses.
+
 Once the browser parses a URL, a DNS lookup is performed. The browser first needs an IP address in order to identify a host and initialize a TCP/IP connection.
 
 The steps of DNS lookup are as follows:
