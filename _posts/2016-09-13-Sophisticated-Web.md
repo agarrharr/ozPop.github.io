@@ -8,11 +8,11 @@ header-img: ""
 ## Blog Topic and Why I Chose It
 ----
 
-Last month, I met a friend at Bierocracy, a beer hall located in Long Island City. My friend, whom I will refer to as Dr.Lezaru, has been involved in web development field for over a decade. As we shared our experiences while enjoying the lovely brew and the effects of alchohol on our pallets and minds, I was presented with a question.
+Last month, I met a friend at Bierocracy, a beer hall located in Long Island City. My friend, whom I will refer to as Dr.Lezaru, has been involved in web development field for over a decade. As we shared our experiences while enjoying the lovely brew and the effects of alcohol on our pallets and minds, I was presented with a question.
 
-![The Philosophy of Moe From Simpons](http://www.dadsbigplan.com/wp-content/uploads/2011/05/beer-is-the-answer.jpg)
+![The Philosophy of Moe From Simpsons](http://www.dadsbigplan.com/wp-content/uploads/2011/05/beer-is-the-answer.jpg)
 
-Dr.Lezaru asked me to explain, in as much detail as I could, **the processes that take place when you enter a URL in a browser and press enter**. He added that in his exprience this question is sometimes asked during interviews and many junior developers tend to give an incomplete answer.
+Dr.Lezaru asked me to explain, in as much detail as I could, **the processes that take place when you enter a URL in a browser and press enter**. He added that in his experience this question is sometimes asked during interviews and many junior developers tend to give an incomplete answer.
 
 After taking another sip of the _Great Divide Yeti Imperial Stout_, I took a moment to compose myself and gather my thoughts. My initial response was not wrong, however, it lacked some essential details. Not only had I skipped over a number of fundamental steps that occur in the process, my was answer incomplete and lacked the kind of detail that Dr.Lezaru expected.
 
@@ -20,14 +20,14 @@ After taking another sip of the _Great Divide Yeti Imperial Stout_, I took a mom
 
 So, after having another Yeti and hearing about the intricacies behind these processes, I decided that I would come back to this topic and investigate it further, perhaps even write a blog post.
 
-What I have since discovered is that the ammount of layers of comlexity that exist when you request a site is staggering. My goal for this post is to condense as much as possible the whole process, assuming no problems occur in any step of the HTTP request, so that when I am asked this question again, I can provide a better answer than the one I gave in the past.
+What I have since discovered is that the amount of layers of complexity that exist when you request a site is staggering. My goal for this post is to condense as much as possible the whole process, assuming no problems occur in any step of the HTTP request, so that when I am asked this question again, I can provide a better answer than the one I gave in the past.
 
 ## The Answer
 ----
 
-Upon entering a URL and requesting a website to be displayed, the user triggers a chain of processes that encompass layers of technologies and protocols. The proccesses are so complex that it would require several college level networking courses to fully explain.
+Upon entering a URL and requesting a website to be displayed, the user triggers a chain of processes that encompass layers of technologies and protocols. The processes are so complex that it would require several college level networking courses to fully explain.
 
-Below is an attempt to provide a reatively rough and simplified summary glossing over the overall process of a quintessential web request.
+Below is an attempt to provide a relatively rough and simplified summary glossing over the overall process of a quintessential web request.
 
 1. [User Enters URL](user-enters-url)
 2. [DNS Lookup Is Performed](dns-lookup)
@@ -40,7 +40,7 @@ Below is an attempt to provide a reatively rough and simplified summary glossing
 ### User Enters URL
 ----
 
-_URL_ stands for **Uniform Resource Locator**, more commonly known as a **Web Address**. It is an identifier of a web resource on a computer network and is a mechanism for obtaininig that resource.
+_URL_ stands for **Uniform Resource Locator**, more commonly known as a **Web Address**. It is an identifier of a web resource on a computer network and is a mechanism for obtaining that resource.
 
 As a mechanism it specifies how information is to be transfered, most commonly using the HTTP protocol. Some other protocols are HTTPS, SSH, FTP, Telnet and more.
 
@@ -51,7 +51,7 @@ A URL also contains a domain name which is an alias for an IP address used to id
 ### DNS lookup
 ----
 
-A **Domain Name System** is one of the protocols that comprise TCP/IP suite. It is a service that translates domain names into IP addresses. Domain names are alphabetic which makes them easier to remember and hence more user friendly while web resrouces are actually identified using IP addresses.
+A **Domain Name System** is one of the protocols that comprise TCP/IP suite. It is a service that translates domain names into IP addresses. Domain names are alphabetic which makes them easier to remember and hence more user friendly while web resources are actually identified using IP addresses.
 
 Once the browser parses a URL, a DNS lookup is performed. The browser first needs an IP address in order to identify a host and initialize a TCP/IP connection.
 
@@ -89,7 +89,7 @@ A client can retrieve a resource using an IP directly. Because some websites hav
 ### Initiate TCP IP connection
 ----
 
-Communication between networked computers is carried out using protocol suits. The most widely used and most widely available protocol suite is the TCP/IP. It provides end-to-end connectivity specifing _how data should be packed, addressed, trasmitted, routed and received_ at the destination. TCP/IP is considered to be a 4 layer system. 
+Communication between networked computers is carried out using protocol suits. The most widely used and most widely available protocol suite is the TCP/IP. It provides end-to-end connectivity specifying _how data should be packed, addressed, transmitted, routed and received_ at the destination. TCP/IP is considered to be a 4 layer system. 
 
 ![TCP/IP concept pic](https://cdn.tutsplus.com/net/uploads/2013/07/img004.png)
 
@@ -100,7 +100,7 @@ Communication between networked computers is carried out using protocol suits. T
     **Data Link Layer** consists of drivers on the OS and a network interface which handle communication details
 </sup>
 
-For the purposes of this blog, the most important thing to mention is that once a client recieves an IP address, the following step is opening of a **"network socket"** so that a client and server can communicate.
+For the purposes of this blog, the most important thing to mention is that once a client receives an IP address, the following step is opening of a **"network socket"** so that a client and server can communicate.
 
 > A socket is one endpoint of a two-way communication link between two programs running on the network. A socket is bound to a port number so that the TCP layer can identify the application that data is destined to be sent to.
 
@@ -115,7 +115,7 @@ Two most commonly used protocols at transport layer are TCP and UDP.
 ### Client HTTP request
 ----
 
-Once a client successfuly initiates a TCP connection with the server, it prepares an HTTP request according to the specification of the HTTP protocol to be sent to the host.
+Once a client successfully initiates a TCP connection with the server, it prepares an HTTP request according to the specification of the HTTP protocol to be sent to the host.
 
 Various information is included in the form of headers.
 
@@ -181,9 +181,9 @@ An HTTP response header is similar to that of the request. It includes informati
 
 Using the metadata a browser parses the response to render the web page. The browser may make more requests, using the same procedures outlined above. This is done to fetch any new resource that are found as embedded content. Typically media, style sheets, javascript files.
 
-A DOM tree is built out of broken HTML. Style sheets and javascript files are parsed and DOM nodes are moved and styled to match the directives of aforemantioned files.
+A DOM tree is built out of broken HTML. Style sheets and javascript files are parsed and DOM nodes are moved and styled to match the directives of aforementioned files.
 
-Finally, the browser renders the page on the screen accroding to the DOM tree and the style information of each node.
+Finally, the browser renders the page on the screen according to the DOM tree and the style information of each node.
 
 ![Content Rendering Pic](http://taligarsiel.com/Projects/image008.jpg)
 
