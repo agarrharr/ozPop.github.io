@@ -14,7 +14,7 @@ Last month, I met a friend at Bierocracy, a beer hall located in Long Island Cit
 
 Dr.Lezaru asked me to explain, in as much detail as I could, **the processes that take place when you enter a URL in a browser and press enter**. He added that in his experience this question is sometimes asked during interviews and many junior developers tend to give an incomplete answer.
 
-After taking another sip of the _Great Divide Yeti Imperial Stout_, I took a moment to compose myself and gather my thoughts. My initial response was not wrong, however, it lacked some essential details. Not only had I skipped over a number of fundamental steps that occur in the process, my was answer incomplete and lacked the kind of detail that Dr.Lezaru expected.
+After taking another sip of the _Great Divide Yeti Imperial Stout_, I took a moment to compose myself and gather my thoughts. My initial response was not wrong, however, it lacked some essential details. Not only had I skipped over a number of fundamental steps that occur in the process, my answer was incomplete and lacked the kind of detail that Dr.Lezaru expected.
 
 ![Great Divide Yeti Imperial Stout Pic](http://media-cache-ec0.pinimg.com/736x/6a/35/94/6a359488fab2d49364209ea9d2e02882.jpg)
 
@@ -179,7 +179,7 @@ An HTTP response header is similar to that of the request. It includes informati
 ### Client Renders Document
 ----
 
-Using the metadata a browser parses the response to render the web page. The browser may make more requests, using the same procedures outlined above. This is done to fetch any new resource that are found as embedded content. Typically media, style sheets, javascript files.
+Using the metadata a browser parses the response to render the web page. The browser may make more requests, using the same procedures outlined above. This is done to fetch any new resources that are found as embedded content. Typically media, style sheets, javascript files.
 
 A DOM tree is built out of broken HTML. Style sheets and javascript files are parsed and DOM nodes are moved and styled to match the directives of aforementioned files.
 
@@ -194,7 +194,7 @@ AJAX requests may be made to communicate with the web server even after the page
 ## Conclusion
 ----
 
-Thinking about the series of events that take place when a URL is entered into an address bar is invigorating. Such a simple step, in the background, triggers an extremely large number of procedures which are layered in an equally large number of abstractions.
+Thinking about the series of events that take place when a URL is entered into an address bar is invigorating. Such a simple step, in the background, triggers an extremely large number of procedures which are layered in what seems to be an equally large number of abstractions.
 
 Writing this blog post has given me the opportunity to look deeper into the processes that are involved in web applications and networking. I hope that next time I am faced with a question posed earlier, I will be better prepared to give a more through and complete answer.
 
