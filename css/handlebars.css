@@ -1,0 +1,28 @@
+.intro-header {
+  /*background: white; */
+}
+
+
+.post-heading h1 {
+  color: #FDF9DA;
+  text-shadow:
+  -2px -2px 0 #271F2F,
+  2px -2px 0 #271F2F,
+  -2px 2px 0 #271F2F,
+  2px 2px 0 #271F2F; 
+}
+
+.post-heading span {
+    color: red;
+}
+
+
+
+  .navbar-custom .nav li a {
+      color: red;
+  }
+
+  .navbar-custom .nav li a:hover {
+      color: red;
+      font-size: 14px;
+  }
