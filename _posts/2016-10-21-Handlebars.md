@@ -5,33 +5,37 @@ title: Templates in Handlebars.js
 header-img: "img/handlebars.jpg"
 ---
 
+### Target audiance
+
+Someone who has not used Handlebars.js.
+
 ### Blog topic
 ----
 
-This is a guide to setting up Handlebars templates. Handlebars templates can be written in the HTML file or separately. In this blog I will cover how to setup the template inside an HTML file and how to pre-compile your templates inside a separate folder.
+This is a guide to setting up Handlebars.js templates. Handlebars.js templates can be written in the HTML file or separately. In this blog I will cover how to setup the template inside an HTML file and how to pre-compile your templates inside a separate folder.
 
 ### Handlebars.js
 ----
 
-[Handlebars.js](http://handlebarsjs.com/) is a Javascript templating language. It is an extension of Mustache, with a few additional features. It renders Mustache templates in addition to Handlebars templates. Unlike Mustache, which is a logicaless templating system, Handlebars adds extensibility and minimal logic through what are known as *helpers*. It is similar to ERB templating language based on Ruby. There exist a number of alternatives to Handlebars.
+[Handlebars.js](http://handlebarsjs.com/) is a Javascript templating language. It is an extension of Mustache, with a few additional features. It renders Mustache templates in addition to Handlebars.js templates. Unlike Mustache, which is a logicaless templating system, Handlebars.js adds extensibility and minimal logic through what are known as *helpers*. There exist a number of alternatives to Handlebars.js.
 
 * [Mustache](http://mustache.github.com/) - Available in various languages
 * [mustache.js](https://github.com/janl/mustache.js) - Javascript port of Mustache
-* [Emblem.js](http://emblemjs.com/) - Alternative for Handlebars
+* [Emblem.js](http://emblemjs.com/) - Alternative for Handlebars.js
 * and more...
 
 ### What does it do?
 ----
 
-To understand what Handlebars accomplishes, we first need to define what a semantic template is. 
+To understand what Handlebars.js accomplishes, we first need to define what a semantic template is. 
 
 > Semantic templates are an alternative to constructing long strings of HTML within your Javascript logic. They take a property of a Javascript object and render it straight into the template. [Source](http://codinghouse.co/blog/getting-started-with-handlebars-js/)
 
-- Handlebars compiles semantic templates with variables and gives us back a Javascript function which accepts an object as an argument.
+- Handlebars.js compiles semantic templates with variables and gives us back a Javascript function which accepts an object as an argument.
 - The object (usually in JSON format) is known as _context_ containing the values of the variables specified in the template.
 - That function returns a string that contains the generated HTML filled with values in place of those variables.
 
-Handlebars accomplishes a number of things:
+Handlebars.js accomplishes a number of things:
 
 * Keeps HTML pages clean separating templates from business logic in Javascript files. This improves application structure, maintainability and scalability
 * Provides an easier way of updating the data on the view
@@ -41,7 +45,7 @@ Handlebars accomplishes a number of things:
 ### Templates inside HTML
 ----
 
-The initial step is to link the required resources. If you are using jQuery link that, the Handlebars library and your Javascript source.
+The initial step is to link the required resources. If you are using jQuery link that, the Handlebars.js library and your Javascript source.
 
 ```html
 <script src="jquery-3.1.0.min.js"></script>
@@ -147,18 +151,16 @@ The lines that matter to us are inside the `showInfo()`. Lets break them down.
     $('#info').append(html);
 ```
 
-That is the very basics of how you get Handlebars to inject HTML with data from your source.
-
 #### [View working example](https://codepen.io/anon/pen/gwQNqg)
 
 ### Pre-Compiling Templates
 ----
 
-Lets say your are planning to use Handlebars extensively and placing the templates inside your main HTML file is not what you want. As you have seen above, the first thing Handlebars does is compile the template into a function. This operation is expensive on the client. We can remedy this by utilizing what is known as **template pre-compilation**.
+Lets say your are planning to use Handlebars.js extensively and placing the templates inside your main HTML file is not what you want. As you have seen above, the first thing Handlebars.js does is compile the template into a function. This operation is expensive on the client. We can remedy this by utilizing what is known as **template pre-compilation**.
 
 Choosing to do this, we can improve the performance of the application by having the client perform only the execution of that function, not the actual compilation of it.
 
-First step is to install Handlebars globally.
+First step is to install Handlebars.js globally.
 
 `$ npm install -g handlebars`
 
@@ -216,7 +218,7 @@ Now open bash and run the following command:
 
 The `-f` flag just means your outputting into a file. There are other flags that minify or create a source map file, details available via the `$ handlebars -h` command.
 
-Now back in your main HTML file link the newly created `templates.js` file and download the [runtime file](http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars.runtime-v4.0.5.js). Having pre-compiled your templates you no longer need the full Handlebars library.
+Now back in your main HTML file link the newly created `templates.js` file and download the [runtime file](http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars.runtime-v4.0.5.js). Having pre-compiled your templates you no longer need the full Handlebars.js library.
 
 ```html
     <body>
@@ -261,9 +263,9 @@ Going back to the Javascript file, modify the `showInfo()` function to reflect t
 ### Conclusion
 ----
 
-Upon reaching the Ajax labs in jQuery section (fullstack track), Handlebars.js is something that you are expected to figure out on your own. Perhaps the idea is to make you work without guidance and possibly to make you realize that you can take something relatively unfamiliar and figure it out. I hope this blog will help those who are trying to do just that. Get a handle on Handlebars.
+Upon reaching the Ajax labs in jQuery section (fullstack track), Handlebars.js is something that you are expected to figure out on your own. Perhaps the idea is to make you work without guidance and possibly to make you realize that you can take something relatively unfamiliar and figure it out. I hope this blog will help those who are trying to do just that. Get a handle on Handlebars.js.
 
-This guide barely scratched the surface of what Handlebars can do for you.  For more information please check the resources below.
+This guide barely scratched the surface of what Handlebars.js can do for you.  For more information please check the resources below.
 
 ### Sources
 ----
@@ -277,4 +279,3 @@ This guide barely scratched the surface of what Handlebars can do for you.  For 
 * [Step-by-step getting started tutorial](http://learnwebtutorials.com/step-by-step-getting-started-tutorial-using-handlebars-js)
 * [Getting Started with Handlebars.js](http://blog.teamtreehouse.com/getting-started-with-handlebars-js)
 * [Handlebars.js Part 2: Partials and Helpers](http://blog.teamtreehouse.com/handlebars-js-part-2-partials-and-helpers)
-
