@@ -1,7 +1,14 @@
-.intro-header {
-  /*background: white; */
+@media screen and (min-width: 1000px) {
+  .intro-header {
+    background-position-y: -300px;
+  }
 }
 
+@media screen and (min-width: 1300px) {
+  .intro-header {
+    background-position-y: -500px;
+  }
+}
 
 .post-heading h1 {
   color: #FDF9DA;
@@ -15,8 +22,6 @@
 .post-heading span {
     color: red;
 }
-
-
 
   .navbar-custom .nav li a {
       color: red;
