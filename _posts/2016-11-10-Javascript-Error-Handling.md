@@ -1,17 +1,17 @@
 ---
 css: javascript-error
 layout: post
-title: Javascript Error Throwing
+title: Throwing Errors in Javascript
 header-img: ""
 ---
 
-As a junior web developer I usually don't employ explicit exception handling strategies. When writing code, I don't consider all edge cases and often aim for successful flow of the program. This approach results in dealing with bugs and errors after they happen and it often leads to over-reliance on default error messages which tend to be vague and make debugging more time consuming.
+As a begginer in the field of web development I don't employ explicit exception handling strategies. When writing code, I scarcely consider edge cases, due to lack of professional experience, and often aim for successful flow of the program. This approach results in dealing with bugs and errors after they happen and it leads to over-reliance on default error messages which tend to be vague and make debugging more time consuming.
 
-Before continuing a distinction between error and exception needs to be made. _Exceptions are events which can be handled at the run time whereas errors cannot be handled._ An exception happens when the natural flow of the program is interrupted by an unexpected event. In other words, while writing code, exceptions arise when something unexpected happens, this affects the flow of the program and thus the user experience. 
+Before continuing with this post, a distinction between _error_ and _exception_ needs to be made. Although the words are used interchangeably **exceptions are events which can be handled at the run time whereas errors cannot be handled.**
 
-As programmers, to better deal with these events we can take advantage of a practice known as _exception handling._
+An exception happens when the natural flow of the program is interrupted by an unexpected event. In other words, while writing code, exceptions arise when something unexpected happens, this affects the flow of the program and thus the user experience. 
 
-Exception handling is the process of anticipating, detecting and resolving anomalies or exceptional conditions during computation. This approach requires special processing and often changes the normal flow of the program.
+As programmers, to better deal with these events we can take advantage of a practice known as _exception handling._ Exception handling is the process of anticipating, detecting and resolving anomalies or exceptional conditions during computation. This approach requires special processing and often changes the normal flow of the program.
 
 ### Types of Errors
 ----
@@ -20,18 +20,18 @@ During software development phase programmers come across various types of progr
 
 The major types of errors in programming are:
 
-* _Parsing errors_ aka syntax errors occur at compile time or at interpret time (e.g. Javascript) and are usually typographical mistakes or improper use of special characters. These errors are usually handled by proofreading.
+* _Parsing errors_ (syntax errors) - occur at compile time or at interpret time (e.g. Javascript) and are usually typographical mistakes or improper use of special characters. These errors are usually handled by proofreading.
 
-* _Runtime errors_ aka exceptions occur during execution and usually are the result of adverse system parameters or invalid input data and are usually handled by careful debugging.
+* _Runtime errors_ (exceptions) - occur during execution and usually are the result of adverse system parameters or invalid input data. Typically handled by careful debugging.
 
-* _Logical errors_ aka bugs occur when executed code does not produce the expected result and often is the result of human mistake. Handled by debugging tools and error handling approaches.
+* _Logical errors_ (bugs) occur when executed code does not produce the expected result and usually are the result of human mistake. Handled by debugging tools and error handling approaches.
 
 ### Errors in Javascript
 ----
 
 Dealing with errors can be a challenging process due to the nature of when and where they happen and how they tend to be described in the message. _Javascript error messages are known to be uninformative and ambiguous._ 
 
-If error messages described exactly what happened and where, debugging would be easier to deal with. Javascript like many other programming languages provides developers with ways to do just that, handle exceptions and throw errors which provide more descriptive messages.
+If error messages described exactly what happened and where, debugging would be easier to deal with. Javascript provides developers with ways to do just that, handle exceptions, throw customized errors and provide more descriptive messages.
 
 Before going into examples of how that can be accomplished it is important to review the base error types in Javascript.
 
@@ -56,11 +56,11 @@ NOTE: This exception is not thrown by JavaScript anymore, however the EvalError 
 
 * **URIError**: Occurs natively when encodeURI() and decodeURI() cannot parse their content. (_e.g. Throwing a URIError if there are problems with URLs and URIs._)
 
-Being aware of the different types of errors makes it easier to handle them. All error types inherit from _Error.prototype_ object and instances of those objects are thrown when runtime errors occur. The Error object can also be used as a base object for user-defined exceptions. As with all constructors, you can use the prototype of the constructor to augment instances created with that constructor.
+All error types inherit from _Error.prototype_ object and instances of those objects are thrown when runtime errors occur. The Error object can also be used as a base object for user-defined exceptions. As with all constructors, you can use the prototype of the constructor to augment instances created with that constructor.
 
 ### Throwing Your Own Errors
 
-The benefits of throwing your own errors are numerous. Expecting and preparing for failure at _specific locations_ in the code base is more effective than purely relying on default errors or planning to cover every point in code.
+The benefits of throwing your own errors are numerous, clearer error messages, time savings while debugging, prevention of application crash, just to name a few. Additionaly, expecting and preparing for failure at _specific locations_ in the code is more effective than purely relying on default errors or planning to cover every point in code.
 
 > Cars are built with crumple zones, areas of the frame that are designed to collapse in a predictable way when impacted. Knowing how the frame will react in a crash, which parts will fail, allow the manufacturers to ensure passenger safety. Your code can be constructed in the same way. [Source](https://www.nczonline.net/blog/2009/03/03/the-art-of-throwing-javascript-errors/)
 
@@ -72,9 +72,11 @@ You can throw an error by using the `throw` operator and by providing an object 
 
 ```javascript
 throw new Error("Exception message!!")
+
+Error: Exception message!!
 ```
 
-When using `throw` in this manner browsers treat the error the same way as an error you didn't throw, it includes default message, column and line numbers. The main difference is that you can add a more descriptive message which may help you in debugging the problem.
+When using `throw` in this manner browsers treat the error the same way as an error you didn't throw, it includes the default message, column and line numbers. The `throw` statement provides a way to add a descriptive message which may help in debugging the problem.
 
 ```javascript
 function getAttribute(element, attribute) {
@@ -106,7 +108,7 @@ Choosing to throw a custom error we can make debugging easier by providing a mes
 
 ```javascript
 function getAttribute(element, attribute) {
-    if (element !== null && typeof element.className == "string") {
+    if (element !== null) {
         return element.getAttribute(attribute);
     } else {
         throw new TypeError("getAttribute(): First parameter must be a valid element.");
@@ -118,10 +120,11 @@ The error:
 ```
 TypeError: getAttribute(): First parameter must be a valid element.
 ```
+<p></p>
 
 #### Try-Catch Construct
 
-Javascript provides a `try-catch` statement that allows the developer to capture thrown errors before they are handled by the browser. This provides an opportunity to handle the error and prevent it from breaking your application flow.
+Javascript provides a `try-catch` statement that allows the developer to capture thrown errors before they are handled by the browser. This becomes an opportunity to handle the error and prevent it from breaking your application flow.
 
 ```javascript
     function multiply(x, y) {
@@ -135,13 +138,13 @@ Javascript provides a `try-catch` statement that allows the developer to capture
     }
 
     try {  
-       multiply(2, 'a string type');
+       multiply(2, 'string');
     } catch (exception) {
        alert(exception.message);
     }
 ```
 
-In the above example we check that both arguments are numbers and if one of them is not, a TypeError is thrown. The catch block is then run if an error was thrown, passing the error object as an argument. The result of that is an alert box with a message that says _'a string type is not a number'_.
+In the above example we check that both arguments are numbers and if one of them is not, a TypeError is thrown. The catch block is then run if an error was thrown, passing the error object as an argument. The result of that is an alert box with a message that says _"`string` is not a number"_.
 
 According to Nicholas C. Zakas, a Javascript developer, some developers have trouble discerning whether it's appropriate to throw an error or catch one using `try-catch`.
 
@@ -157,7 +160,7 @@ Using the previous example, we could add a conditional like so:
 
 ```javascript
 try {
-  multiply(2, 'a string type');
+  multiply(2, 'string');
 } catch (exception) {
   if (exception instanceof TypeError) {
     alert(exception.message);
@@ -173,7 +176,7 @@ The alert will only fire if a `TypeError` is detected notifying the user to fix 
 
 Getting to know the types of errors and why they happen is immensely useful when dealing with debugging. Errors help us navigate towards a solution and locate problems in our code. Taking the time to learn where it is best to throw errors and how to handle errors appropriately may result in time savings when debugging and increase the quality of our code.
 
-P.S.
+Some rules to consider:
 
 1. Assume your code will fail
 2. Log errors to the server
@@ -192,4 +195,4 @@ P.S.
 * [The Art of Throwing Javascript Errors](https://www.nczonline.net/blog/2009/03/03/the-art-of-throwing-javascript-errors/)
 * [The Art of Throwing Javascript Errors, Part 2](https://www.nczonline.net/blog/2009/03/10/the-art-of-throwing-javascript-errors-part-2/)
 * [MDN Error Ref](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
-* [Enterprise JavaScript Error Handling](http://www.devhands.com/2008/10/javascript-error-handling-and-general-best-practices/)
+* [Enterprise JavaScript Error Handling](http://www.slideshare.net/nzakas/enterprise-javascript-error-handling-presentation/48-E_tcetera_M_y_blog)

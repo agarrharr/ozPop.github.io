@@ -1,3 +1,25 @@
+.intro-header {
+  /*background-image: transparent;*/
+  background: #1a0006;
+}
+
 .post-heading h1 {
-  color: #000;
+  color: #FFF;
+}
+
+.post-heading h1::after {
+  content: "X";
+  margin: 10px;
+  padding: 0 12px 0 12px;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 52px;
+  font-family: sans-serif; /* Pick the font that works for you */
+  line-height: 100px;
+  border: solid 4px white;
 }
