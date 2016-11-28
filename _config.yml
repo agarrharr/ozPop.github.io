@@ -1,14 +1,14 @@
 # Site settings
 title: Rusty Fence Blog
 header-img: img/rusty-fence.png
-email: ozziepopovas@gmail.com
+email: ozpop12@gmail.com
 copyright_name: ozPop
 description: ""
 baseurl: ""
 twitter_username:
 github_username: ozPop
 learn_profile: ozPop
-email_username: ozziepopovas@gmail.com
+email_username: ozpop12@gmail.com
 
 # Google Analytics
 # To enable google analytics, uncomment below line with a valid Google Tracking ID
