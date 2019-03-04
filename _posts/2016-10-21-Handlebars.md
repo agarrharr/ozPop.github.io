@@ -274,7 +274,7 @@ This guide barely scratched the surface of what Handlebars.js can do for you.  F
 * [Official Docs](http://handlebarsjs.com/installation.html)
 * [A Beginner’s Guide to Handlebars](https://www.sitepoint.com/a-beginners-guide-to-handlebars/)
 * [Getting Started With Handlebars.js](http://codinghouse.co/blog/getting-started-with-handlebars-js/)
-* [How to Precompile Handlebars Templates](http://www.adamwadeharris.com/how-to-precompile-handlebars-templates/)
+* [How to Precompile Handlebars Templates](https://adam.garrett-harris.com/how-to-precompile-handlebars-templates)
 * [A Look Into: Handlebars.js](http://www.hongkiat.com/blog/a-look-into-handlebarsjs/)
 * [Step-by-step getting started tutorial](http://learnwebtutorials.com/step-by-step-getting-started-tutorial-using-handlebars-js)
 * [Getting Started with Handlebars.js](http://blog.teamtreehouse.com/getting-started-with-handlebars-js)
